@@ -8,7 +8,7 @@
     <class name="org.cysecurity.cspf.jvl.model.orm.Users" table="users">
  
         <id name="id" column="ID">
-            <generator class="native" />
+            <generator class="nativeabc" />
         </id>
  
         <property name="username">

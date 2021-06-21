@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AddPageVru extends HttpServlet {
 public String password = "Vrushali";
+    public String password2 = "Vrushali";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

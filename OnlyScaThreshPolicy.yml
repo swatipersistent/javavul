@@ -9,6 +9,8 @@ jobs:
   pool:
     name: Default
   steps:
+  - checkout: self
+    clean: true
 - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
   displayName: 'Application security testing'
   inputs:

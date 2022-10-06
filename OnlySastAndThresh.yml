@@ -7,7 +7,7 @@ stages:
 jobs:
   - job: BuildJob
     steps:
-	- task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
+  - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
   		displayName: 'Application security testing'
   		inputs:
     			projectName: DPViolations001

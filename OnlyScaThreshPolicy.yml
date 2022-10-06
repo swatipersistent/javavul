@@ -11,7 +11,7 @@ jobs:
   steps:
   - checkout: self
     clean: true
-  - task: Application security testing@2021
+  - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
     displayName: Cx
     inputs:
       projectName: sslTestVru

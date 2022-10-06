@@ -12,11 +12,11 @@ jobs:
   - checkout: self
     clean: true  
   - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
-  		displayName: 'Application security testing'
-  		inputs:
+  	displayName: 'Application security testing'
+  	inputs:
     			projectName: DPViolations001
     			CheckmarxService: sast9dot5
-   		        engineConfigId: 1
+   		     engineConfigId: 1
     			fullTeamName: CxServer
     			incScan: false
     			enablePolicyViolations: true

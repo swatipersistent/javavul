@@ -14,7 +14,14 @@ jobs:
   - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
     displayName: 'Application security testing'
     inputs:
-     projectName: testYaml1
-     CheckmarxService: sast9dot5
-     fullTeamName: CxServer
-     incScan: false
+    projectName: testYaml92
+    CheckmarxService: sast9dot5
+    fullTeamName: CxServer
+    incScan: false
+    scanTimeout: 20
+    comment: test
+    generatePDFReport: true
+    vulnerabilityThreshold: true
+    high: 400
+    medium: 400
+    low: 400

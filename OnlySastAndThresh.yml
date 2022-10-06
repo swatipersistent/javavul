@@ -1,12 +1,16 @@
-stages:
-- stage: Deploy
-  pool: 
-   name: Default
-   demands:
-    - agent.name -equals agentOct1
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: master
 jobs:
-  - job: BuildJob
-    steps:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    name: Default
+  steps:
+  - checkout: self
+    clean: true  
   - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
   		displayName: 'Application security testing'
   		inputs:

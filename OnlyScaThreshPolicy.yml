@@ -11,10 +11,10 @@ jobs:
   steps:
   - checkout: self
     clean: true
-- task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
-  displayName: 'Application security testing'
-  inputs:
-    projectName: testYaml1
-    CheckmarxService: sast9dot5
-    fullTeamName: CxServer
-    incScan: false
+  - task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2022
+    displayName: 'Application security testing'
+    inputs:
+     projectName: testYaml1
+     CheckmarxService: sast9dot5
+     fullTeamName: CxServer
+     incScan: false

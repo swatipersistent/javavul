@@ -1,0 +1,83 @@
+parameters:
+
+- name: cxService
+
+  type: string
+
+  default: SAST-Bug
+
+ 
+
+variables:
+
+- name: debug
+
+  value: true 
+
+pool:
+
+#    name: Default
+
+     vmImage: 'ubuntu-20.04'
+
+  
+
+steps:
+
+- script: |
+
+    curl -L "https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz" -o "ScaResolver.tar.gz" && tar -vxzf ScaResolver.tar.gz && sudo mv ScaResolver /usr/local/bin && rm ScaResolver.tar.gz
+
+
+- script: |
+
+    ls -lart /usr/local/bin
+
+    
+
+- bash: echo '-s $(Build.SourcesDirectory) -n testNewProjTES6667122 -r $(Agent.BuildDirectory)'    
+
+- task: Checkmarx-Prerelease.cxsast.cx-scan-task.Application security testing@2023
+
+  displayName: 'Application security testing'
+
+  inputs:
+
+      projectName: testNewProjTES6667122
+
+      syncMode: true
+
+      enableProxy: false
+
+      enableSastScan: false
+
+      enableDependencyScan: true
+
+      dependencyServerURL: scaNewConnection1
+
+      dependencyAccessControlURL: 'https://platform.checkmarx.net'
+
+      dependencyWebAppURL: 'https://sca.checkmarx.net'
+
+      includeSource: false
+
+      dependencyFolderExclusion: 'cvs,.svn,.hg,.git,.bzr,bin,obj,backup,.idea,node_modules'
+
+      dependencyTenant: plugins
+
+      scaVulnerabilityThreshold: false
+ 
+      isEnableScaResolver: true
+
+      scaResolverAddParameters: '-s $(Build.SourcesDirectory) -n testNewProjTES6667122 -r $(Agent.BuildDirectory)'
+
+      scaHigh: ' '
+
+      scaMedium: ' '
+
+      scaLow: ' '
+
+      scaTeam: 'CxServer/'
+
+ 
+
